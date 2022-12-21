@@ -35,7 +35,7 @@ export const useAsync = <D>({ url, method, body, headers, onMount = true }: UseA
     try {
       setIsPending(true)
 
-      const res = await fetch(url, {
+      const res = await fetch(process.env.REACT_APP_API_URL + url, {
         method,
         body,
         headers: new Headers(headers)

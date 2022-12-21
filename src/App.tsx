@@ -33,14 +33,14 @@ function App() {
   const [symbolsLocal, setSymbolsLocal] = useLocalStorage<Omit<SymbolsData, 'success'> | null>('symbols_local', null)
 
   const { send: getExchangeRates, data: exchangesRates, isPending, error } = useAsync<ExchangeRatesData>({ 
-    url: 'https://api.apilayer.com/exchangerates_data/latest', 
-    headers: { apikey: 'tYCuFYoArNC6K8H72g8rtOjKnf659VYD' } , 
+    url: '/latest', 
+    headers: { apikey: process.env.REACT_APP_API_KEY } , 
     onMount: false 
   })
 
   const { send: getSymbols, data: symbols, isPending: isPendingSymbols, error: errorSymbols } = useAsync<SymbolsData>({
-    url: 'https://api.apilayer.com/exchangerates_data/symbols', 
-    headers: { apikey: 'tYCuFYoArNC6K8H72g8rtOjKnf659VYD' }, 
+    url: '/symbols', 
+    headers: { apikey: process.env.REACT_APP_API_KEY }, 
     onMount: false 
   })
 
