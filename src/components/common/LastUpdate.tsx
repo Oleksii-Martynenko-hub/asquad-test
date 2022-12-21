@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components'
 
 const LastUpdate = ({ date, time }: { date?: string, time?: string }) => {
@@ -7,8 +6,10 @@ const LastUpdate = ({ date, time }: { date?: string, time?: string }) => {
       {(date && time) && (<>
         <Wrapper>
           Updated:
+
           <Date>{date}</Date>
         </Wrapper>
+
         <Time>{time}</Time>
       </>)}
     </StyledDate>
@@ -34,12 +35,11 @@ const Wrapper = styled.span`
 `
 
 const Time = styled.span`
-  font-family: sans-serif;
   font-size: 30px;
   color: white;
   letter-spacing: 0px;
   transform: scaleY(1.6);
-  `
+`
 
 const Date = styled.span`
   font-size: 14px;

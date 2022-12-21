@@ -18,12 +18,6 @@ export const useAsync = <D>({ url, method, body, headers, onMount = true }: UseA
   const [data, setData] = useState<D | null>(null)
   const [error, setError] = useState<unknown | null>(null)
 
-  // useEffect(() => {
-  //   if (!isPending && !isResolved && !isRejected) {
-  //     setIsPending(true)
-  //   }
-  // }, [isPending, isResolved, isRejected])
-
   useEffect(() => {
     if (isFirstMount.current && onMount) {
       isFirstMount.current = false

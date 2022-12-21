@@ -1,18 +1,20 @@
 import { FC } from "react"
 import styled from "styled-components"
+
 import HeadCell from "./HeadCell"
+import { IColumnTable } from "./ExchangeRatesTable"
 
 
 interface Props {
-  columns: { id: string, title: string, width?: string, minWidth?: string }[]
+  columns: IColumnTable[]
 }
 
 const HeaderTable: FC<Props> = ({ columns }) => {
   return (
     <StyledHeaderTable>
       <tr>
-        {columns.map(({ id, title, width, minWidth }) => (
-          <HeadCell key={id} width={width} minWidth={minWidth}>{ title }</HeadCell>
+        {columns.map(({ id, title, ...props }) => (
+          <HeadCell key={id} { ...props }>{ title }</HeadCell>
         ))}
       </tr>
     </StyledHeaderTable>
