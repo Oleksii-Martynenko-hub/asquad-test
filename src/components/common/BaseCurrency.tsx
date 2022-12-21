@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components'
 
 const BaseCurrency = () => {
@@ -35,7 +34,7 @@ const Symbol = styled.span`
   font-size: 30px;
   color: white;
   letter-spacing: 0px;
-  transform: scaleY(1.6) ;
+  transform: scaleY(1.6);
   margin: 0 5px;
 `
 

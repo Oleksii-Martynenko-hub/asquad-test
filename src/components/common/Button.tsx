@@ -49,7 +49,6 @@ const ButtonStyled = styled.button<Props>`
     css`
       cursor: auto;
     `}
-
 `
 
 const PrimaryButton = styled(ButtonStyled)`

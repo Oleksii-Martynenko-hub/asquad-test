@@ -1,15 +1,14 @@
-import { FC, useEffect } from "react"
-import { useState } from "react"
+import { FC, useEffect, useState } from "react"
 import styled from "styled-components"
-import BaseCurrency from "./BaseCurrency"
 
 import Button from "./Button"
 import LastUpdate from "./LastUpdate"
+import BaseCurrency from "./BaseCurrency"
 
 interface Props {
+  isLoading?: boolean
   lastUpdate: number | undefined
   onUpdateClick: () => Promise<void>
-  isLoading?: boolean
 }
 
 const Header: FC<Props> = ({ lastUpdate, onUpdateClick, isLoading }) => {

@@ -16,7 +16,7 @@ export default DataCell
 const StyledDataCell = styled.td`
   padding: 8px 15px;
   height: 50px;
-    vertical-align: middle;
+  vertical-align: middle;
   /* white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis; */
