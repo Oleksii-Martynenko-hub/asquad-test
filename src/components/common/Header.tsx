@@ -32,6 +32,8 @@ const Header: FC<Props> = ({ lastUpdate, onUpdateClick, isLoading }) => {
       <HeaderContentWrapper>
         <LastUpdate { ...formattedDate } />
 
+        <BaseCurrency />
+
         <ButtonWrapper>
           <Button disabled={isLoading} fullWidth onClick={updateBtnHandler}>Update</Button>
 
