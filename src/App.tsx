@@ -102,11 +102,13 @@ function App() {
     <ThemeProvider theme={theme}>
       <Container>
         <Header
+          isLoading={isPending || isPendingSymbols}
           lastUpdate={exchangesRatesLocal?.lastUpdate}
           onUpdateClick={handleOnUpdateClick}
         />
 
         <ExchangeRatesTable
+          isLoading={isPending || isPendingSymbols}
           exchangesRates={exchangesRatesLocal?.rates}
           symbols={symbolsLocal?.symbols}
         />

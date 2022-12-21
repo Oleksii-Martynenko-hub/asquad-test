@@ -29,9 +29,10 @@ export interface IRowTable {
 interface Props {
   exchangesRates: { [key: string]: number, } | undefined | null
   symbols: { [key: string]: string, } | undefined | null
+  isLoading?: boolean
 }
 
-const ExchangeRatesTable: FC<Props> = ({ exchangesRates, symbols }) => {
+const ExchangeRatesTable: FC<Props> = ({ exchangesRates, symbols, isLoading }) => {
   
   const [rows, setRows] = useState<IRowTable[]>([])
   
@@ -53,6 +54,12 @@ const ExchangeRatesTable: FC<Props> = ({ exchangesRates, symbols }) => {
 
   return (
     <StyledTable>
+        {isLoading && (
+          <TableLoader>
+            <Loader /> 
+          </TableLoader>
+        )}
+
         <HeaderTable columns={columns} />
 
         <tbody>
@@ -77,4 +84,44 @@ const StyledTable = styled.table`
   min-width: 375px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   position: relative;
+`
+
+const TableLoader = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+  color: white;
+  z-index: 99;
+`
+
+const flash = keyframes`
+  0% {
+    background-color: rgba(0, 0, 0, 0.129);
+    box-shadow: 32px 0 rgba(0, 0, 0, 0.129), -32px 0 rgba(0, 0, 0, 0.8);
+  }
+  50% {
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 32px 0 rgba(0, 0, 0, 0.129), -32px 0 rgba(0, 0, 0, 0.129);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.129);
+    box-shadow: 32px 0 rgba(0, 0, 0, 0.8), -32px 0 rgba(0, 0, 0, 0.129);
+  }
+`
+
+const Loader = styled.span`
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 32px 0 #fff, -32px 0 #fff;
+  position: relative;
+  animation: ${flash} 0.5s ease-out infinite alternate;
 `
