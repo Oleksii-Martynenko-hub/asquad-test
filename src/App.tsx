@@ -59,7 +59,7 @@ function App() {
     await getExchangeRates()
     
     setExchangesRatesLocal(null)
-  }, 60*60*1000 - reduceTimeout)
+  }, 1*60*1000 - reduceTimeout)
 
   useEffect(() => {
     reset()

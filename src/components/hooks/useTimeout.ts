@@ -14,6 +14,7 @@ export const useTimeout = (callback: () => any, delay: number) => {
       firstRenderRef.current = false
       return
     }
+    console.log('setTimeout', 'sec: ', delay / 1000)
     timeoutRef.current = setTimeout(() => callbackRef.current(), delay)
   }, [delay])
 
